@@ -1,18 +1,5 @@
 ## Customization
 
-### Change the Background Video
-
-Replace the video URL in `index.html` (line 16):
-```html
-<source src="YOUR_VIDEO_URL_HERE.mp4" type="video/mp4">
-```
-
-You can use videos from:
-- [Pexels](https://www.pexels.com/videos/)
-- [Pixabay](https://pixabay.com/videos/)
-- [Mixkit](https://mixkit.co/free-stock-video/)
-- Your own video file (place it in the project folder)
-
 ### Change the GIFs
 
 Replace the GIF URLs in `index.html`:
