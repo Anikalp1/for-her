@@ -1,0 +1,457 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    position: relative;
+}
+
+/* Video Background with Gradient Overlay */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+#bgVideo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+.gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 182, 193, 0.7),
+        rgba(255, 218, 224, 0.6),
+        rgba(255, 192, 203, 0.7),
+        rgba(219, 112, 147, 0.6)
+    );
+    /* Removed backdrop-filter for better performance */
+}
+
+/* Container Styles */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+}
+
+#congratulationsContainer {
+    display: none;
+}
+
+/* Floating Hearts Animation */
+.hearts-animation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.hearts-animation .heart {
+    position: absolute;
+    font-size: 30px;
+    bottom: -50px;
+    animation: floatHearts 8s infinite ease-in-out;
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+.hearts-animation .heart:nth-child(1) {
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.hearts-animation .heart:nth-child(2) {
+    left: 50%;
+    animation-delay: 2s;
+}
+
+.hearts-animation .heart:nth-child(3) {
+    left: 80%;
+    animation-delay: 4s;
+}
+
+@keyframes floatHearts {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(30px) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+/* Question Box */
+.question-box {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 50px 60px;
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(255, 105, 180, 0.3);
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    animation: fadeInScale 0.6s ease-out;
+    border: 3px solid rgba(255, 182, 193, 0.5);
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.question-title {
+    font-size: 2.5em;
+    color: #FF1493;
+    margin-bottom: 30px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.gif-container {
+    margin: 30px 0;
+}
+
+.cute-gif {
+    width: 250px;
+    height: 250px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
+    object-fit: cover;
+}
+
+/* Buttons */
+.buttons-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 15px 40px;
+    font-size: 1.3em;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    will-change: transform;
+}
+
+.yes-btn {
+    background: linear-gradient(135deg, #FF1493, #FF69B4);
+    color: white;
+    animation: wiggle 2s ease-in-out infinite;
+}
+
+.yes-btn:hover {
+    transform: scale(1.15);
+    box-shadow: 0 8px 25px rgba(255, 20, 147, 0.4);
+}
+
+@keyframes wiggle {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-3deg);
+    }
+    75% {
+        transform: rotate(3deg);
+    }
+}
+
+.no-btn {
+    background: linear-gradient(135deg, #FFB6C1, #FFC0CB);
+    color: #FF1493;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.no-btn:hover {
+    background: linear-gradient(135deg, #FFC0CB, #FFB6C1);
+}
+
+/* Congratulations Page */
+.celebration-box {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 60px 80px;
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(255, 105, 180, 0.4);
+    text-align: center;
+    max-width: 700px;
+    width: 100%;
+    animation: bounceIn 0.8s ease-out;
+    border: 3px solid rgba(255, 182, 193, 0.5);
+    position: relative;
+    z-index: 10;
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.celebration-title {
+    font-size: 4em;
+    color: #FF1493;
+    margin-bottom: 20px;
+    font-weight: bold;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.celebration-text {
+    font-size: 2em;
+    color: #FF69B4;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.celebration-gif {
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+    object-fit: cover;
+}
+
+.valentine-message {
+    font-size: 1.8em;
+    color: #FF1493;
+    margin-top: 30px;
+    font-weight: bold;
+    animation: glow 2s infinite;
+}
+
+@keyframes glow {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(255, 20, 147, 0.8);
+    }
+}
+
+/* Hearts Explosion */
+.hearts-explosion {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.hearts-explosion .heart {
+    position: absolute;
+    font-size: 40px;
+    animation: explodeHearts 3s infinite ease-out;
+}
+
+.hearts-explosion .heart:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.hearts-explosion .heart:nth-child(2) {
+    top: 30%;
+    left: 80%;
+    animation-delay: 0.3s;
+}
+
+.hearts-explosion .heart:nth-child(3) {
+    top: 50%;
+    left: 5%;
+    animation-delay: 0.6s;
+}
+
+.hearts-explosion .heart:nth-child(4) {
+    top: 60%;
+    left: 90%;
+    animation-delay: 0.9s;
+}
+
+.hearts-explosion .heart:nth-child(5) {
+    top: 70%;
+    left: 15%;
+    animation-delay: 1.2s;
+}
+
+.hearts-explosion .heart:nth-child(6) {
+    top: 80%;
+    left: 85%;
+    animation-delay: 1.5s;
+}
+
+.hearts-explosion .heart:nth-child(7) {
+    top: 40%;
+    left: 50%;
+    animation-delay: 1.8s;
+}
+
+.hearts-explosion .heart:nth-child(8) {
+    top: 10%;
+    left: 50%;
+    animation-delay: 2.1s;
+}
+
+@keyframes explodeHearts {
+    0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.5) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Confetti Effect */
+.confetti {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.confetti::before,
+.confetti::after {
+    content: '🎉';
+    position: absolute;
+    font-size: 50px;
+    animation: confettiFall 5s infinite;
+}
+
+.confetti::before {
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.confetti::after {
+    left: 80%;
+    animation-delay: 2s;
+}
+
+@keyframes confettiFall {
+    0% {
+        top: -10%;
+        transform: rotate(0deg);
+    }
+    100% {
+        top: 110%;
+        transform: rotate(720deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .question-box, .celebration-box {
+        padding: 30px 40px;
+    }
+
+    .question-title {
+        font-size: 1.8em;
+    }
+
+    .celebration-title {
+        font-size: 2.5em;
+    }
+
+    .celebration-text {
+        font-size: 1.3em;
+    }
+
+    .valentine-message {
+        font-size: 1.3em;
+    }
+
+    .cute-gif, .celebration-gif {
+        width: 200px;
+        height: 200px;
+    }
+
+    .btn {
+        padding: 12px 30px;
+        font-size: 1.1em;
+    }
+}
+
+/* Shake animation for sad gif */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+    20%, 40%, 60%, 80% { transform: translateX(10px); }
+}
