@@ -1,24 +1,3 @@
-# Will You Be My Valentine? 💝
-
-A cute and interactive Valentine's Day proposal website with a fun twist! The "No" button runs away and shrinks when you try to click it, while the "Yes" button grows bigger. Eventually leads to a beautiful congratulations page with animations.
-
-## Features
-
-- 🎥 **Background Video**: Looping video with a rusty/pink gradient overlay
-- 💖 **Interactive Buttons**:
-  - "Yes" button that grows and celebrates your choice
-  - "No" button that moves away and shrinks when hovered or clicked
-- 🎉 **Congratulations Page**: Beautiful celebration with confetti and heart animations
-- 📱 **Responsive Design**: Works on all devices (desktop, tablet, mobile)
-- ✨ **Cute Animations**: Floating hearts, pulsing effects, and smooth transitions
-- 🎨 **Beautiful Gradient**: Romantic pink/rose gradient overlay
-
-## How to Use
-
-1. **Open the website**: Simply open `index.html` in your browser
-2. **Try to click "No"**: Watch as the button moves away and gets smaller!
-3. **Click "Yes"**: See the beautiful congratulations animation
-
 ## Customization
 
 ### Change the Background Video
@@ -58,7 +37,7 @@ Edit `script.js` to change:
 ## File Structure
 
 ```
-will-you-be-my-valentine/
+for-her/
 │
 ├── index.html          # Main HTML structure
 ├── style.css           # Styles and animations
@@ -95,28 +74,3 @@ Works on all modern browsers:
 - Firefox
 - Safari
 - Edge
-
-## Mobile Friendly
-
-Fully responsive design with touch support for mobile devices.
-
-## Tips for Best Experience
-
-1. **Use a romantic video**: Choose a video with soft colors (pink, rose, pastel)
-2. **Test the buttons**: The "No" button has 11 different messages before becoming nearly impossible to click
-3. **Share the love**: Send this to your Valentine! 💕
-
-## Credits
-
-- Built with HTML, CSS, and JavaScript
-- GIFs from Giphy
-- Videos from Pixabay/Mixkit
-- Made with 💖
-
-## License
-
-Feel free to use and modify this project for your Valentine! 🌹
-
----
-
-**Happy Valentine's Day! 💝**
